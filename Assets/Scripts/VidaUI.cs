@@ -5,10 +5,10 @@ using UnityEngine.UI;
 
 public class VidaUI : MonoBehaviour
 {
-    [SerializeField] private Slider barra;
+    [SerializeField] private Image barraVida;
 
     public void ActualizarBarra(int vidaActual, int vidaMaxima)
     {
-        barra.value = (float)vidaActual / vidaMaxima;
+        barraVida.fillAmount = (float)vidaActual / vidaMaxima;
     }
 }
