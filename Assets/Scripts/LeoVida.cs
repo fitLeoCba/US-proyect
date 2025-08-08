@@ -9,6 +9,7 @@ public class LeoVida : MonoBehaviour
     [SerializeField] private Transform puntoReaparicion;
     [SerializeField] private float fuerzaRetroceso = 5f;
     [SerializeField] private float tiempoInvulnerable = 0.5f;
+    [SerializeField] private VidaUI uiVida;
 
     private LeoController controller;
     private int vidaActual;
@@ -19,6 +20,7 @@ public class LeoVida : MonoBehaviour
     private void Start()
     {
         vidaActual = vidaMaxima;
+        uiVida.ActualizarBarra(vidaActual, vidaMaxima);
     }
 
     private void Awake()
@@ -53,6 +55,7 @@ public class LeoVida : MonoBehaviour
         {
             StartCoroutine(ReactivarDaño());
         }
+        uiVida.ActualizarBarra(vidaActual, vidaMaxima);
     }
 
     private IEnumerator ReactivarDaño()
@@ -77,6 +80,7 @@ public class LeoVida : MonoBehaviour
         {
             Debug.LogWarning("No hay punto de reaparición asignado.");
         }
+        uiVida.ActualizarBarra(vidaActual, vidaMaxima);
     }
 
 }
